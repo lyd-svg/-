@@ -92,8 +92,10 @@ def stop_servers():
     log("所有服务已停止")
 
 
-def start_server(cfg: dict) -> subprocess.Popen:
-    """启动单个 MCP 服务器，返回进程对象"""
+def start_server(cfg: dict, index: int | None = None) -> subprocess.Popen:
+    """启动单个 MCP 服务器，返回进程对象
+    如果指定 index，则替换 _procs 中对应位置的进程（重启时使用）
+    """
     name = cfg["name"]
     module = cfg["module"]
     port = cfg["port"]
@@ -111,7 +113,10 @@ def start_server(cfg: dict) -> subprocess.Popen:
         stderr=subprocess.DEVNULL,
         cwd=BASE_DIR,
     )
-    _procs.append(proc)
+    if index is not None:
+        _procs[index] = proc
+    else:
+        _procs.append(proc)
     return proc
 
 
@@ -201,9 +206,11 @@ def main():
             while True:
                 time.sleep(1)
                 for i, p in enumerate(_procs):
+                    if i >= len(SERVERS):
+                        continue  # 超出配置的服务列表，跳过
                     if p.poll() is not None:
                         log(f"({SERVERS[i]['name']}) 已退出，正在重启...")
-                        _procs[i] = start_server(SERVERS[i])
+                        start_server(SERVERS[i], index=i)
         except KeyboardInterrupt:
             stop_servers()
         return
