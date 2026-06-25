@@ -15,7 +15,6 @@ _FUNC_NAMES = {
     "draw_chart": "生成静态图表",
     "get_chart_types": "获取图表类型",
     "calculate": "数学计算",
-    "list_reports": "获取报告列表",
     "search_knowledge": "检索知识库",
     "web_search": "联网搜索",
     "list_documents": "获取文档列表",
@@ -56,7 +55,6 @@ _TOOL_OWNER = {
     "describe_data": "数据分析可视化智能体",
     "draw_chart": "数据分析可视化智能体",
     "get_chart_types": "数据分析可视化智能体",
-    "list_reports": "数据分析可视化智能体",
     "visualize_analysis_agent": "数据分析可视化智能体",
     # 知识库检索智能体
     "search_knowledge": "知识库检索智能体",
@@ -69,6 +67,6 @@ _TOOL_OWNER = {
     "search_knowledge_agent": "知识库检索智能体",
     # 主智能体（计算器）
     "calculate": "主智能体",
-    # 健康检查
-    "health_check": "数据库查询智能体",
+    # 健康检查（analysis_server 和 rag_server 均有定义）
+    "health_check": "数据分析可视化智能体",
 }

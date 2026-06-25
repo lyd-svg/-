@@ -167,8 +167,8 @@ class TestDBIntegration:
             assert isinstance(result, str)
 
     @pytest.mark.asyncio
-    async def test_db_health_check(self):
-        from mcp_db_server import health_check
+    async def test_health_check_analysis_server(self):
+        from mcp_analysis_server import health_check
         result = await health_check()
         assert "系统" in result
 
@@ -212,12 +212,6 @@ class TestVizIntegration:
         from mcp_analysis_server import visualize_data
         result = await visualize_data("[]", chart_type="invalid_type")
         assert "不支持" in result
-
-    @pytest.mark.asyncio
-    async def test_list_reports(self):
-        from mcp_analysis_server import list_reports
-        result = await list_reports()
-        assert isinstance(result, str)
 
     @pytest.mark.asyncio
     async def test_viz_health_check(self):

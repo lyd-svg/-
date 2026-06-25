@@ -37,9 +37,7 @@ class TestToolOwnerMapping:
         viz_tools = [
             "visualize_data",
             "describe_data",
-            "generate_report",
             "get_chart_types",
-            "list_reports",
             "visualize_analysis_agent",
         ]
         for tool in viz_tools:

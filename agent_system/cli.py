@@ -170,7 +170,7 @@ def main():
     parser.add_argument("--calc-url", help="calc_server URL")
     parser.add_argument("--model", default="deepseek-v4-flash", help="模型名")
     parser.add_argument("--max-history", type=int, default=MAX_HISTORY,
-                        help="保留最近 N 轮对话，默认 3，0 表示不保留")
+                        help=f"保留最近 N 轮对话，默认 {MAX_HISTORY}，0 表示不保留")
     args = parser.parse_args()
 
     # 覆盖 MCP Server 地址
