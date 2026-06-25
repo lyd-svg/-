@@ -1,0 +1,27 @@
+name: ai-analytics
+
+services:
+  ai-analytics:
+    build: .
+    container_name: multi-agent-analytics
+    ports:
+      - "8501:8501"              # Streamlit UI（唯一需要对外暴露的端口）
+    # MCP 服务端口（8000-8003）仅在容器内部通信，不需要映射到宿主机
+    volumes:
+      # 持久化向量索引（容器重启不丢失）
+      - vector_data:/app/vector_db
+      # 持久化知识库文档
+      - ./knowledge_base/raw:/app/knowledge_base/raw
+      # 持久化生成的图表
+      - ./reports/charts:/app/reports/charts
+      # 挂载 .env 配置（只读）
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    environment:
+      - TRANSFORMERS_OFFLINE=1
+      - HF_ENDPOINT=https://hf-mirror.com
+    restart: unless-stopped
+
+volumes:
+  vector_data:

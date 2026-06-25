@@ -1,0 +1,13 @@
+# ── Docker 构建忽略（不复制到镜像中的文件）──
+.git
+.gitignore
+venv/
+__pycache__/
+*.pyc
+.env
+logs/
+vector_db/
+reports/
+.claude/
+.files/
+.vscode/

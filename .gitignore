@@ -1,0 +1,42 @@
+# ── 密钥和配置（不提交） ──
+.env
+
+# ── 数据库文件（不提交） ──
+*.db
+*.db-wal
+*.db-shm
+
+# 但 ecommerce.db 是项目内置数据，需要提交给其他人用
+!ecommerce.db
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+venv/
+.venv/
+
+# ── 项目运行时生成数据 ──
+logs/
+reports/
+vector_db/
+screenshots/
+
+# ── SSL 证书（本地开发） ──
+ssl/
+
+# ── IDE / 编辑器 ──
+.vscode/
+.idea/
+
+# ── Chainlit（未使用）──
+.chainlit/
+
+# ── Claude ──
+.claude/
+
+# ── 系统文件 ──
+Thumbs.db
+.DS_Store

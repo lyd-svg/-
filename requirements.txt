@@ -1,0 +1,45 @@
+# ── 核心框架 ──
+openai>=1.0.0
+openai-agents>=0.0.7
+mcp>=1.0.0
+uvicorn>=0.20.0
+sse-starlette>=1.0.0
+python-dotenv>=1.0.0
+
+# ── 数据库 ──
+duckdb>=1.0.0
+
+# ── 数据分析与可视化 ──
+pandas>=2.0.0
+numpy>=1.24.0
+pyecharts>=2.0.0
+matplotlib>=3.7.0
+
+# ── RAG / 向量检索 ──
+chromadb>=1.5.0
+sentence-transformers>=3.0.0
+rank-bm25>=0.2.0
+jieba>=0.42.0
+
+# ── 文档解析 ──
+pdfplumber>=0.10.0
+python-docx>=1.0.0
+openpyxl>=3.1.0
+
+# ── Web 前端 ──
+streamlit>=1.28.0
+python-multipart>=0.0.6
+
+# ── 网络搜索 ──
+httpx>=0.25.0
+requests>=2.28.0
+
+# ── SSL 证书 ──
+cryptography>=41.0.0
+
+# ── Supabase（可选 - 旧数据同步）──
+supabase>=2.0.0
+
+# ── 测试 ──
+pytest>=8.0.0
+pytest-asyncio>=0.21.0
